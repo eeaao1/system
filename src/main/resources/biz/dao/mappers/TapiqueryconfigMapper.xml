@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="biz.dao.mappers.TapiqueryconfigMapper">
+  <resultMap id="BaseResultMap" type="biz.dao.mappers.entity.Tapiqueryconfig">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="INTERFACE_ID" jdbcType="VARCHAR" property="interfaceId" />
+    <result column="RELOAD" jdbcType="CHAR" property="reload" />
+    <result column="PAGINATION" jdbcType="CHAR" property="pagination" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="VERSION" jdbcType="DECIMAL" property="version" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="biz.dao.mappers.entity.Tapiqueryconfig">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <result column="DSQL" jdbcType="CLOB" property="dsql" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    ID, INTERFACE_ID, RELOAD, PAGINATION, CREATE_TIME, UPDATE_TIME, VERSION
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    DSQL
+  </sql>
+  <sql id="Insert_Column_List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    #{record.id,jdbcType=VARCHAR}, #{record.interfaceId,jdbcType=VARCHAR}, #{record.reload,jdbcType=CHAR}, 
+    #{record.pagination,jdbcType=CHAR}, #{record.createTime,jdbcType=TIMESTAMP}, #{record.updateTime,jdbcType=TIMESTAMP}, 
+    #{record.version,jdbcType=DECIMAL}
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="biz.dao.mappers.entity.TapiqueryconfigExample" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from TAPIQUERYCONFIG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="biz.dao.mappers.entity.TapiqueryconfigExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TAPIQUERYCONFIG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExampleWithPage" resultMap="BaseResultMap">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select
+    <if test="example.distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TAPIQUERYCONFIG
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+    <if test="example.orderByClause != null">
+      order by ${example.orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from TAPIQUERYCONFIG
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    delete from TAPIQUERYCONFIG
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="biz.dao.mappers.entity.TapiqueryconfigExample">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    delete from TAPIQUERYCONFIG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="biz.dao.mappers.entity.Tapiqueryconfig">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    insert into TAPIQUERYCONFIG (ID, INTERFACE_ID, RELOAD, 
+      PAGINATION, CREATE_TIME, UPDATE_TIME, 
+      VERSION, DSQL)
+    values (#{id,jdbcType=VARCHAR}, #{interfaceId,jdbcType=VARCHAR}, #{reload,jdbcType=CHAR}, 
+      #{pagination,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{version,jdbcType=DECIMAL}, #{dsql,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="biz.dao.mappers.entity.Tapiqueryconfig">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    insert into TAPIQUERYCONFIG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="interfaceId != null">
+        INTERFACE_ID,
+      </if>
+      <if test="reload != null">
+        RELOAD,
+      </if>
+      <if test="pagination != null">
+        PAGINATION,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="version != null">
+        VERSION,
+      </if>
+      <if test="dsql != null">
+        DSQL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="interfaceId != null">
+        #{interfaceId,jdbcType=VARCHAR},
+      </if>
+      <if test="reload != null">
+        #{reload,jdbcType=CHAR},
+      </if>
+      <if test="pagination != null">
+        #{pagination,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=DECIMAL},
+      </if>
+      <if test="dsql != null">
+        #{dsql,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertBatch" parameterType="java.util.List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <choose>
+      <when test="${getDBType} == 'Mysql' or ${getDBType} == 'OceanBase'">
+        insert into TAPIQUERYCONFIG
+        (<include refid="Base_Column_List" />)
+        values
+        <foreach collection="records" item="record" separator=",">
+          (<include refid="Insert_Column_List" />)
+        </foreach>
+      </when>
+      <otherwise>
+        insert all
+        <foreach collection="records" item="record">
+          into TAPIQUERYCONFIG
+          (<include refid="Base_Column_List" />)
+          values
+          (<include refid="Insert_Column_List" />)
+        </foreach>
+        select 1 from dual
+      </otherwise>
+    </choose>
+  </insert>
+  <select id="countByExample" parameterType="biz.dao.mappers.entity.TapiqueryconfigExample" resultType="java.lang.Long">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select count(*) from TAPIQUERYCONFIG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TAPIQUERYCONFIG
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.interfaceId != null">
+        INTERFACE_ID = #{record.interfaceId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reload != null">
+        RELOAD = #{record.reload,jdbcType=CHAR},
+      </if>
+      <if test="record.pagination != null">
+        PAGINATION = #{record.pagination,jdbcType=CHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.version != null">
+        VERSION = #{record.version,jdbcType=DECIMAL},
+      </if>
+      <if test="record.dsql != null">
+        DSQL = #{record.dsql,jdbcType=CLOB},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TAPIQUERYCONFIG
+    set ID = #{record.id,jdbcType=VARCHAR},
+      INTERFACE_ID = #{record.interfaceId,jdbcType=VARCHAR},
+      RELOAD = #{record.reload,jdbcType=CHAR},
+      PAGINATION = #{record.pagination,jdbcType=CHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      VERSION = #{record.version,jdbcType=DECIMAL},
+      DSQL = #{record.dsql,jdbcType=CLOB}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TAPIQUERYCONFIG
+    set ID = #{record.id,jdbcType=VARCHAR},
+      INTERFACE_ID = #{record.interfaceId,jdbcType=VARCHAR},
+      RELOAD = #{record.reload,jdbcType=CHAR},
+      PAGINATION = #{record.pagination,jdbcType=CHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      VERSION = #{record.version,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="biz.dao.mappers.entity.Tapiqueryconfig">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TAPIQUERYCONFIG
+    <set>
+      <if test="interfaceId != null">
+        INTERFACE_ID = #{interfaceId,jdbcType=VARCHAR},
+      </if>
+      <if test="reload != null">
+        RELOAD = #{reload,jdbcType=CHAR},
+      </if>
+      <if test="pagination != null">
+        PAGINATION = #{pagination,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        VERSION = #{version,jdbcType=DECIMAL},
+      </if>
+      <if test="dsql != null">
+        DSQL = #{dsql,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="biz.dao.mappers.entity.Tapiqueryconfig">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TAPIQUERYCONFIG
+    set INTERFACE_ID = #{interfaceId,jdbcType=VARCHAR},
+      RELOAD = #{reload,jdbcType=CHAR},
+      PAGINATION = #{pagination,jdbcType=CHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      VERSION = #{version,jdbcType=DECIMAL},
+      DSQL = #{dsql,jdbcType=CLOB}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="biz.dao.mappers.entity.Tapiqueryconfig">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TAPIQUERYCONFIG
+    set INTERFACE_ID = #{interfaceId,jdbcType=VARCHAR},
+      RELOAD = #{reload,jdbcType=CHAR},
+      PAGINATION = #{pagination,jdbcType=CHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      VERSION = #{version,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

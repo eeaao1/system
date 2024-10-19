@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="biz.dao.mappers.TblockcolumnsMapper">
+  <resultMap id="BaseResultMap" type="biz.dao.mappers.entity.Tblockcolumns">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <result column="C_COLUMNID" jdbcType="VARCHAR" property="cColumnid" />
+    <result column="C_BLOCKID" jdbcType="VARCHAR" property="cBlockid" />
+    <result column="L_NUM" jdbcType="DECIMAL" property="lNum" />
+    <result column="L_COLS" jdbcType="DECIMAL" property="lCols" />
+    <result column="C_ISJRESCOMPONENT" jdbcType="CHAR" property="cIsjrescomponent" />
+    <result column="C_COMPONENTTYPE" jdbcType="VARCHAR" property="cComponenttype" />
+    <result column="C_INVISIBLE" jdbcType="CHAR" property="cInvisible" />
+    <result column="C_LABEL" jdbcType="VARCHAR" property="cLabel" />
+    <result column="C_CHECK" jdbcType="VARCHAR" property="cCheck" />
+    <result column="C_VALUE" jdbcType="VARCHAR" property="cValue" />
+    <result column="C_NAME" jdbcType="VARCHAR" property="cName" />
+    <result column="C_DICTNAME" jdbcType="VARCHAR" property="cDictname" />
+    <result column="C_ITEMS" jdbcType="VARCHAR" property="cItems" />
+    <result column="C_EVENT" jdbcType="VARCHAR" property="cEvent" />
+    <result column="C_EVENTS" jdbcType="VARCHAR" property="cEvents" />
+    <result column="C_COMPONENTID" jdbcType="VARCHAR" property="cComponentid" />
+    <result column="C_DISABLED" jdbcType="CHAR" property="cDisabled" />
+    <result column="L_MAXLENGTH" jdbcType="DECIMAL" property="lMaxlength" />
+    <result column="C_SQL" jdbcType="VARCHAR" property="cSql" />
+    <result column="C_AFTERCLEAR" jdbcType="VARCHAR" property="cAfterclear" />
+    <result column="C_SELECTONCHANGE" jdbcType="VARCHAR" property="cSelectonchange" />
+    <result column="C_MOSAICCOLUMN" jdbcType="VARCHAR" property="cMosaiccolumn" />
+    <result column="C_TABLENAME" jdbcType="VARCHAR" property="cTablename" />
+    <result column="C_COMPARECOLUMN" jdbcType="VARCHAR" property="cComparecolumn" />
+    <result column="L_INTEGERNUM" jdbcType="DECIMAL" property="lIntegernum" />
+    <result column="L_SUFFIXNUM" jdbcType="DECIMAL" property="lSuffixnum" />
+    <result column="C_CHGEVENTID" jdbcType="VARCHAR" property="cChgeventid" />
+    <result column="C_VIEWFLAG" jdbcType="VARCHAR" property="cViewflag" />
+    <result column="C_TIPS" jdbcType="VARCHAR" property="cTips" />
+    <result column="C_HIDDEN" jdbcType="CHAR" property="cHidden" />
+    <result column="C_COMPPARAM" jdbcType="VARCHAR" property="cCompparam" />
+    <result column="C_MAPPINGID" jdbcType="VARCHAR" property="cMappingid" />
+    <result column="L_HELPCODE" jdbcType="DECIMAL" property="lHelpcode" />
+    <result column="C_HIDECANEDIT" jdbcType="CHAR" property="cHidecanedit" />
+    <result column="C_PAGESETPARAM" jdbcType="VARCHAR" property="cPagesetparam" />
+    <result column="C_ISCANSELECTPARENT" jdbcType="CHAR" property="cIscanselectparent" />
+    <result column="C_DOUBLEAUDIT" jdbcType="VARCHAR" property="cDoubleaudit" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    C_COLUMNID, C_BLOCKID, L_NUM, L_COLS, C_ISJRESCOMPONENT, C_COMPONENTTYPE, C_INVISIBLE, 
+    C_LABEL, C_CHECK, C_VALUE, C_NAME, C_DICTNAME, C_ITEMS, C_EVENT, C_EVENTS, C_COMPONENTID, 
+    C_DISABLED, L_MAXLENGTH, C_SQL, C_AFTERCLEAR, C_SELECTONCHANGE, C_MOSAICCOLUMN, C_TABLENAME, 
+    C_COMPARECOLUMN, L_INTEGERNUM, L_SUFFIXNUM, C_CHGEVENTID, C_VIEWFLAG, C_TIPS, C_HIDDEN, 
+    C_COMPPARAM, C_MAPPINGID, L_HELPCODE, C_HIDECANEDIT, C_PAGESETPARAM, C_ISCANSELECTPARENT, 
+    C_DOUBLEAUDIT
+  </sql>
+  <sql id="Insert_Column_List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    #{record.cColumnid,jdbcType=VARCHAR}, #{record.cBlockid,jdbcType=VARCHAR}, #{record.lNum,jdbcType=DECIMAL}, 
+    #{record.lCols,jdbcType=DECIMAL}, #{record.cIsjrescomponent,jdbcType=CHAR}, #{record.cComponenttype,jdbcType=VARCHAR}, 
+    #{record.cInvisible,jdbcType=CHAR}, #{record.cLabel,jdbcType=VARCHAR}, #{record.cCheck,jdbcType=VARCHAR}, 
+    #{record.cValue,jdbcType=VARCHAR}, #{record.cName,jdbcType=VARCHAR}, #{record.cDictname,jdbcType=VARCHAR}, 
+    #{record.cItems,jdbcType=VARCHAR}, #{record.cEvent,jdbcType=VARCHAR}, #{record.cEvents,jdbcType=VARCHAR}, 
+    #{record.cComponentid,jdbcType=VARCHAR}, #{record.cDisabled,jdbcType=CHAR}, #{record.lMaxlength,jdbcType=DECIMAL}, 
+    #{record.cSql,jdbcType=VARCHAR}, #{record.cAfterclear,jdbcType=VARCHAR}, #{record.cSelectonchange,jdbcType=VARCHAR}, 
+    #{record.cMosaiccolumn,jdbcType=VARCHAR}, #{record.cTablename,jdbcType=VARCHAR}, 
+    #{record.cComparecolumn,jdbcType=VARCHAR}, #{record.lIntegernum,jdbcType=DECIMAL}, 
+    #{record.lSuffixnum,jdbcType=DECIMAL}, #{record.cChgeventid,jdbcType=VARCHAR}, #{record.cViewflag,jdbcType=VARCHAR}, 
+    #{record.cTips,jdbcType=VARCHAR}, #{record.cHidden,jdbcType=CHAR}, #{record.cCompparam,jdbcType=VARCHAR}, 
+    #{record.cMappingid,jdbcType=VARCHAR}, #{record.lHelpcode,jdbcType=DECIMAL}, #{record.cHidecanedit,jdbcType=CHAR}, 
+    #{record.cPagesetparam,jdbcType=VARCHAR}, #{record.cIscanselectparent,jdbcType=CHAR}, 
+    #{record.cDoubleaudit,jdbcType=VARCHAR}
+  </sql>
+  <select id="selectByExample" parameterType="biz.dao.mappers.entity.TblockcolumnsExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TBLOCKCOLUMNS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExampleWithPage" resultMap="BaseResultMap">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select
+    <if test="example.distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TBLOCKCOLUMNS
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+    <if test="example.orderByClause != null">
+      order by ${example.orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="biz.dao.mappers.entity.TblockcolumnsExample">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    delete from TBLOCKCOLUMNS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="biz.dao.mappers.entity.Tblockcolumns">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    insert into TBLOCKCOLUMNS (C_COLUMNID, C_BLOCKID, L_NUM, 
+      L_COLS, C_ISJRESCOMPONENT, C_COMPONENTTYPE, 
+      C_INVISIBLE, C_LABEL, C_CHECK, 
+      C_VALUE, C_NAME, C_DICTNAME, 
+      C_ITEMS, C_EVENT, C_EVENTS, 
+      C_COMPONENTID, C_DISABLED, L_MAXLENGTH, 
+      C_SQL, C_AFTERCLEAR, C_SELECTONCHANGE, 
+      C_MOSAICCOLUMN, C_TABLENAME, C_COMPARECOLUMN, 
+      L_INTEGERNUM, L_SUFFIXNUM, C_CHGEVENTID, 
+      C_VIEWFLAG, C_TIPS, C_HIDDEN, 
+      C_COMPPARAM, C_MAPPINGID, L_HELPCODE, 
+      C_HIDECANEDIT, C_PAGESETPARAM, C_ISCANSELECTPARENT, 
+      C_DOUBLEAUDIT)
+    values (#{cColumnid,jdbcType=VARCHAR}, #{cBlockid,jdbcType=VARCHAR}, #{lNum,jdbcType=DECIMAL}, 
+      #{lCols,jdbcType=DECIMAL}, #{cIsjrescomponent,jdbcType=CHAR}, #{cComponenttype,jdbcType=VARCHAR}, 
+      #{cInvisible,jdbcType=CHAR}, #{cLabel,jdbcType=VARCHAR}, #{cCheck,jdbcType=VARCHAR}, 
+      #{cValue,jdbcType=VARCHAR}, #{cName,jdbcType=VARCHAR}, #{cDictname,jdbcType=VARCHAR}, 
+      #{cItems,jdbcType=VARCHAR}, #{cEvent,jdbcType=VARCHAR}, #{cEvents,jdbcType=VARCHAR}, 
+      #{cComponentid,jdbcType=VARCHAR}, #{cDisabled,jdbcType=CHAR}, #{lMaxlength,jdbcType=DECIMAL}, 
+      #{cSql,jdbcType=VARCHAR}, #{cAfterclear,jdbcType=VARCHAR}, #{cSelectonchange,jdbcType=VARCHAR}, 
+      #{cMosaiccolumn,jdbcType=VARCHAR}, #{cTablename,jdbcType=VARCHAR}, #{cComparecolumn,jdbcType=VARCHAR}, 
+      #{lIntegernum,jdbcType=DECIMAL}, #{lSuffixnum,jdbcType=DECIMAL}, #{cChgeventid,jdbcType=VARCHAR}, 
+      #{cViewflag,jdbcType=VARCHAR}, #{cTips,jdbcType=VARCHAR}, #{cHidden,jdbcType=CHAR}, 
+      #{cCompparam,jdbcType=VARCHAR}, #{cMappingid,jdbcType=VARCHAR}, #{lHelpcode,jdbcType=DECIMAL}, 
+      #{cHidecanedit,jdbcType=CHAR}, #{cPagesetparam,jdbcType=VARCHAR}, #{cIscanselectparent,jdbcType=CHAR}, 
+      #{cDoubleaudit,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="biz.dao.mappers.entity.Tblockcolumns">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    insert into TBLOCKCOLUMNS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cColumnid != null">
+        C_COLUMNID,
+      </if>
+      <if test="cBlockid != null">
+        C_BLOCKID,
+      </if>
+      <if test="lNum != null">
+        L_NUM,
+      </if>
+      <if test="lCols != null">
+        L_COLS,
+      </if>
+      <if test="cIsjrescomponent != null">
+        C_ISJRESCOMPONENT,
+      </if>
+      <if test="cComponenttype != null">
+        C_COMPONENTTYPE,
+      </if>
+      <if test="cInvisible != null">
+        C_INVISIBLE,
+      </if>
+      <if test="cLabel != null">
+        C_LABEL,
+      </if>
+      <if test="cCheck != null">
+        C_CHECK,
+      </if>
+      <if test="cValue != null">
+        C_VALUE,
+      </if>
+      <if test="cName != null">
+        C_NAME,
+      </if>
+      <if test="cDictname != null">
+        C_DICTNAME,
+      </if>
+      <if test="cItems != null">
+        C_ITEMS,
+      </if>
+      <if test="cEvent != null">
+        C_EVENT,
+      </if>
+      <if test="cEvents != null">
+        C_EVENTS,
+      </if>
+      <if test="cComponentid != null">
+        C_COMPONENTID,
+      </if>
+      <if test="cDisabled != null">
+        C_DISABLED,
+      </if>
+      <if test="lMaxlength != null">
+        L_MAXLENGTH,
+      </if>
+      <if test="cSql != null">
+        C_SQL,
+      </if>
+      <if test="cAfterclear != null">
+        C_AFTERCLEAR,
+      </if>
+      <if test="cSelectonchange != null">
+        C_SELECTONCHANGE,
+      </if>
+      <if test="cMosaiccolumn != null">
+        C_MOSAICCOLUMN,
+      </if>
+      <if test="cTablename != null">
+        C_TABLENAME,
+      </if>
+      <if test="cComparecolumn != null">
+        C_COMPARECOLUMN,
+      </if>
+      <if test="lIntegernum != null">
+        L_INTEGERNUM,
+      </if>
+      <if test="lSuffixnum != null">
+        L_SUFFIXNUM,
+      </if>
+      <if test="cChgeventid != null">
+        C_CHGEVENTID,
+      </if>
+      <if test="cViewflag != null">
+        C_VIEWFLAG,
+      </if>
+      <if test="cTips != null">
+        C_TIPS,
+      </if>
+      <if test="cHidden != null">
+        C_HIDDEN,
+      </if>
+      <if test="cCompparam != null">
+        C_COMPPARAM,
+      </if>
+      <if test="cMappingid != null">
+        C_MAPPINGID,
+      </if>
+      <if test="lHelpcode != null">
+        L_HELPCODE,
+      </if>
+      <if test="cHidecanedit != null">
+        C_HIDECANEDIT,
+      </if>
+      <if test="cPagesetparam != null">
+        C_PAGESETPARAM,
+      </if>
+      <if test="cIscanselectparent != null">
+        C_ISCANSELECTPARENT,
+      </if>
+      <if test="cDoubleaudit != null">
+        C_DOUBLEAUDIT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cColumnid != null">
+        #{cColumnid,jdbcType=VARCHAR},
+      </if>
+      <if test="cBlockid != null">
+        #{cBlockid,jdbcType=VARCHAR},
+      </if>
+      <if test="lNum != null">
+        #{lNum,jdbcType=DECIMAL},
+      </if>
+      <if test="lCols != null">
+        #{lCols,jdbcType=DECIMAL},
+      </if>
+      <if test="cIsjrescomponent != null">
+        #{cIsjrescomponent,jdbcType=CHAR},
+      </if>
+      <if test="cComponenttype != null">
+        #{cComponenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="cInvisible != null">
+        #{cInvisible,jdbcType=CHAR},
+      </if>
+      <if test="cLabel != null">
+        #{cLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="cCheck != null">
+        #{cCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="cValue != null">
+        #{cValue,jdbcType=VARCHAR},
+      </if>
+      <if test="cName != null">
+        #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cDictname != null">
+        #{cDictname,jdbcType=VARCHAR},
+      </if>
+      <if test="cItems != null">
+        #{cItems,jdbcType=VARCHAR},
+      </if>
+      <if test="cEvent != null">
+        #{cEvent,jdbcType=VARCHAR},
+      </if>
+      <if test="cEvents != null">
+        #{cEvents,jdbcType=VARCHAR},
+      </if>
+      <if test="cComponentid != null">
+        #{cComponentid,jdbcType=VARCHAR},
+      </if>
+      <if test="cDisabled != null">
+        #{cDisabled,jdbcType=CHAR},
+      </if>
+      <if test="lMaxlength != null">
+        #{lMaxlength,jdbcType=DECIMAL},
+      </if>
+      <if test="cSql != null">
+        #{cSql,jdbcType=VARCHAR},
+      </if>
+      <if test="cAfterclear != null">
+        #{cAfterclear,jdbcType=VARCHAR},
+      </if>
+      <if test="cSelectonchange != null">
+        #{cSelectonchange,jdbcType=VARCHAR},
+      </if>
+      <if test="cMosaiccolumn != null">
+        #{cMosaiccolumn,jdbcType=VARCHAR},
+      </if>
+      <if test="cTablename != null">
+        #{cTablename,jdbcType=VARCHAR},
+      </if>
+      <if test="cComparecolumn != null">
+        #{cComparecolumn,jdbcType=VARCHAR},
+      </if>
+      <if test="lIntegernum != null">
+        #{lIntegernum,jdbcType=DECIMAL},
+      </if>
+      <if test="lSuffixnum != null">
+        #{lSuffixnum,jdbcType=DECIMAL},
+      </if>
+      <if test="cChgeventid != null">
+        #{cChgeventid,jdbcType=VARCHAR},
+      </if>
+      <if test="cViewflag != null">
+        #{cViewflag,jdbcType=VARCHAR},
+      </if>
+      <if test="cTips != null">
+        #{cTips,jdbcType=VARCHAR},
+      </if>
+      <if test="cHidden != null">
+        #{cHidden,jdbcType=CHAR},
+      </if>
+      <if test="cCompparam != null">
+        #{cCompparam,jdbcType=VARCHAR},
+      </if>
+      <if test="cMappingid != null">
+        #{cMappingid,jdbcType=VARCHAR},
+      </if>
+      <if test="lHelpcode != null">
+        #{lHelpcode,jdbcType=DECIMAL},
+      </if>
+      <if test="cHidecanedit != null">
+        #{cHidecanedit,jdbcType=CHAR},
+      </if>
+      <if test="cPagesetparam != null">
+        #{cPagesetparam,jdbcType=VARCHAR},
+      </if>
+      <if test="cIscanselectparent != null">
+        #{cIscanselectparent,jdbcType=CHAR},
+      </if>
+      <if test="cDoubleaudit != null">
+        #{cDoubleaudit,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertBatch" parameterType="java.util.List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <choose>
+      <when test="${getDBType} == 'Mysql' or ${getDBType} == 'OceanBase'">
+        insert into TBLOCKCOLUMNS
+        (<include refid="Base_Column_List" />)
+        values
+        <foreach collection="records" item="record" separator=",">
+          (<include refid="Insert_Column_List" />)
+        </foreach>
+      </when>
+      <otherwise>
+        insert all
+        <foreach collection="records" item="record">
+          into TBLOCKCOLUMNS
+          (<include refid="Base_Column_List" />)
+          values
+          (<include refid="Insert_Column_List" />)
+        </foreach>
+        select 1 from dual
+      </otherwise>
+    </choose>
+  </insert>
+  <select id="countByExample" parameterType="biz.dao.mappers.entity.TblockcolumnsExample" resultType="java.lang.Long">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select count(*) from TBLOCKCOLUMNS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TBLOCKCOLUMNS
+    <set>
+      <if test="record.cColumnid != null">
+        C_COLUMNID = #{record.cColumnid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cBlockid != null">
+        C_BLOCKID = #{record.cBlockid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lNum != null">
+        L_NUM = #{record.lNum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.lCols != null">
+        L_COLS = #{record.lCols,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cIsjrescomponent != null">
+        C_ISJRESCOMPONENT = #{record.cIsjrescomponent,jdbcType=CHAR},
+      </if>
+      <if test="record.cComponenttype != null">
+        C_COMPONENTTYPE = #{record.cComponenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cInvisible != null">
+        C_INVISIBLE = #{record.cInvisible,jdbcType=CHAR},
+      </if>
+      <if test="record.cLabel != null">
+        C_LABEL = #{record.cLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cCheck != null">
+        C_CHECK = #{record.cCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cValue != null">
+        C_VALUE = #{record.cValue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cName != null">
+        C_NAME = #{record.cName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cDictname != null">
+        C_DICTNAME = #{record.cDictname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cItems != null">
+        C_ITEMS = #{record.cItems,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cEvent != null">
+        C_EVENT = #{record.cEvent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cEvents != null">
+        C_EVENTS = #{record.cEvents,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cComponentid != null">
+        C_COMPONENTID = #{record.cComponentid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cDisabled != null">
+        C_DISABLED = #{record.cDisabled,jdbcType=CHAR},
+      </if>
+      <if test="record.lMaxlength != null">
+        L_MAXLENGTH = #{record.lMaxlength,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cSql != null">
+        C_SQL = #{record.cSql,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cAfterclear != null">
+        C_AFTERCLEAR = #{record.cAfterclear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSelectonchange != null">
+        C_SELECTONCHANGE = #{record.cSelectonchange,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cMosaiccolumn != null">
+        C_MOSAICCOLUMN = #{record.cMosaiccolumn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cTablename != null">
+        C_TABLENAME = #{record.cTablename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cComparecolumn != null">
+        C_COMPARECOLUMN = #{record.cComparecolumn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lIntegernum != null">
+        L_INTEGERNUM = #{record.lIntegernum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.lSuffixnum != null">
+        L_SUFFIXNUM = #{record.lSuffixnum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cChgeventid != null">
+        C_CHGEVENTID = #{record.cChgeventid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cViewflag != null">
+        C_VIEWFLAG = #{record.cViewflag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cTips != null">
+        C_TIPS = #{record.cTips,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cHidden != null">
+        C_HIDDEN = #{record.cHidden,jdbcType=CHAR},
+      </if>
+      <if test="record.cCompparam != null">
+        C_COMPPARAM = #{record.cCompparam,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cMappingid != null">
+        C_MAPPINGID = #{record.cMappingid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lHelpcode != null">
+        L_HELPCODE = #{record.lHelpcode,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cHidecanedit != null">
+        C_HIDECANEDIT = #{record.cHidecanedit,jdbcType=CHAR},
+      </if>
+      <if test="record.cPagesetparam != null">
+        C_PAGESETPARAM = #{record.cPagesetparam,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cIscanselectparent != null">
+        C_ISCANSELECTPARENT = #{record.cIscanselectparent,jdbcType=CHAR},
+      </if>
+      <if test="record.cDoubleaudit != null">
+        C_DOUBLEAUDIT = #{record.cDoubleaudit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TBLOCKCOLUMNS
+    set C_COLUMNID = #{record.cColumnid,jdbcType=VARCHAR},
+      C_BLOCKID = #{record.cBlockid,jdbcType=VARCHAR},
+      L_NUM = #{record.lNum,jdbcType=DECIMAL},
+      L_COLS = #{record.lCols,jdbcType=DECIMAL},
+      C_ISJRESCOMPONENT = #{record.cIsjrescomponent,jdbcType=CHAR},
+      C_COMPONENTTYPE = #{record.cComponenttype,jdbcType=VARCHAR},
+      C_INVISIBLE = #{record.cInvisible,jdbcType=CHAR},
+      C_LABEL = #{record.cLabel,jdbcType=VARCHAR},
+      C_CHECK = #{record.cCheck,jdbcType=VARCHAR},
+      C_VALUE = #{record.cValue,jdbcType=VARCHAR},
+      C_NAME = #{record.cName,jdbcType=VARCHAR},
+      C_DICTNAME = #{record.cDictname,jdbcType=VARCHAR},
+      C_ITEMS = #{record.cItems,jdbcType=VARCHAR},
+      C_EVENT = #{record.cEvent,jdbcType=VARCHAR},
+      C_EVENTS = #{record.cEvents,jdbcType=VARCHAR},
+      C_COMPONENTID = #{record.cComponentid,jdbcType=VARCHAR},
+      C_DISABLED = #{record.cDisabled,jdbcType=CHAR},
+      L_MAXLENGTH = #{record.lMaxlength,jdbcType=DECIMAL},
+      C_SQL = #{record.cSql,jdbcType=VARCHAR},
+      C_AFTERCLEAR = #{record.cAfterclear,jdbcType=VARCHAR},
+      C_SELECTONCHANGE = #{record.cSelectonchange,jdbcType=VARCHAR},
+      C_MOSAICCOLUMN = #{record.cMosaiccolumn,jdbcType=VARCHAR},
+      C_TABLENAME = #{record.cTablename,jdbcType=VARCHAR},
+      C_COMPARECOLUMN = #{record.cComparecolumn,jdbcType=VARCHAR},
+      L_INTEGERNUM = #{record.lIntegernum,jdbcType=DECIMAL},
+      L_SUFFIXNUM = #{record.lSuffixnum,jdbcType=DECIMAL},
+      C_CHGEVENTID = #{record.cChgeventid,jdbcType=VARCHAR},
+      C_VIEWFLAG = #{record.cViewflag,jdbcType=VARCHAR},
+      C_TIPS = #{record.cTips,jdbcType=VARCHAR},
+      C_HIDDEN = #{record.cHidden,jdbcType=CHAR},
+      C_COMPPARAM = #{record.cCompparam,jdbcType=VARCHAR},
+      C_MAPPINGID = #{record.cMappingid,jdbcType=VARCHAR},
+      L_HELPCODE = #{record.lHelpcode,jdbcType=DECIMAL},
+      C_HIDECANEDIT = #{record.cHidecanedit,jdbcType=CHAR},
+      C_PAGESETPARAM = #{record.cPagesetparam,jdbcType=VARCHAR},
+      C_ISCANSELECTPARENT = #{record.cIscanselectparent,jdbcType=CHAR},
+      C_DOUBLEAUDIT = #{record.cDoubleaudit,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

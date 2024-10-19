@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="biz.dao.mappers.TbmsapimanagerMapper">
+  <resultMap id="BaseResultMap" type="biz.dao.mappers.entity.Tbmsapimanager">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <id column="C_FUNCTIONID" jdbcType="VARCHAR" property="cFunctionid" />
+    <id column="C_PATH" jdbcType="VARCHAR" property="cPath" />
+    <result column="C_NAME" jdbcType="VARCHAR" property="cName" />
+    <result column="C_STATUS" jdbcType="VARCHAR" property="cStatus" />
+    <result column="C_CHECKFUNCTION" jdbcType="VARCHAR" property="cCheckfunction" />
+    <result column="C_REMARK" jdbcType="VARCHAR" property="cRemark" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    C_FUNCTIONID, C_PATH, C_NAME, C_STATUS, C_CHECKFUNCTION, C_REMARK
+  </sql>
+  <sql id="Insert_Column_List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    #{record.cFunctionid,jdbcType=VARCHAR}, #{record.cPath,jdbcType=VARCHAR}, #{record.cName,jdbcType=VARCHAR}, 
+    #{record.cStatus,jdbcType=VARCHAR}, #{record.cCheckfunction,jdbcType=VARCHAR}, #{record.cRemark,jdbcType=VARCHAR}
+  </sql>
+  <select id="selectByExample" parameterType="biz.dao.mappers.entity.TbmsapimanagerExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TBMSAPIMANAGER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExampleWithPage" resultMap="BaseResultMap">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select
+    <if test="example.distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TBMSAPIMANAGER
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+    <if test="example.orderByClause != null">
+      order by ${example.orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from TBMSAPIMANAGER
+    where C_FUNCTIONID = #{cFunctionid,jdbcType=VARCHAR}
+      and C_PATH = #{cPath,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    delete from TBMSAPIMANAGER
+    where C_FUNCTIONID = #{cFunctionid,jdbcType=VARCHAR}
+      and C_PATH = #{cPath,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="biz.dao.mappers.entity.TbmsapimanagerExample">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    delete from TBMSAPIMANAGER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="biz.dao.mappers.entity.Tbmsapimanager">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    insert into TBMSAPIMANAGER (C_FUNCTIONID, C_PATH, C_NAME, 
+      C_STATUS, C_CHECKFUNCTION, C_REMARK
+      )
+    values (#{cFunctionid,jdbcType=VARCHAR}, #{cPath,jdbcType=VARCHAR}, #{cName,jdbcType=VARCHAR}, 
+      #{cStatus,jdbcType=VARCHAR}, #{cCheckfunction,jdbcType=VARCHAR}, #{cRemark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="biz.dao.mappers.entity.Tbmsapimanager">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    insert into TBMSAPIMANAGER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cFunctionid != null">
+        C_FUNCTIONID,
+      </if>
+      <if test="cPath != null">
+        C_PATH,
+      </if>
+      <if test="cName != null">
+        C_NAME,
+      </if>
+      <if test="cStatus != null">
+        C_STATUS,
+      </if>
+      <if test="cCheckfunction != null">
+        C_CHECKFUNCTION,
+      </if>
+      <if test="cRemark != null">
+        C_REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cFunctionid != null">
+        #{cFunctionid,jdbcType=VARCHAR},
+      </if>
+      <if test="cPath != null">
+        #{cPath,jdbcType=VARCHAR},
+      </if>
+      <if test="cName != null">
+        #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cStatus != null">
+        #{cStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="cCheckfunction != null">
+        #{cCheckfunction,jdbcType=VARCHAR},
+      </if>
+      <if test="cRemark != null">
+        #{cRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertBatch" parameterType="java.util.List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <choose>
+      <when test="${getDBType} == 'Mysql' or ${getDBType} == 'OceanBase'">
+        insert into TBMSAPIMANAGER
+        (<include refid="Base_Column_List" />)
+        values
+        <foreach collection="records" item="record" separator=",">
+          (<include refid="Insert_Column_List" />)
+        </foreach>
+      </when>
+      <otherwise>
+        insert all
+        <foreach collection="records" item="record">
+          into TBMSAPIMANAGER
+          (<include refid="Base_Column_List" />)
+          values
+          (<include refid="Insert_Column_List" />)
+        </foreach>
+        select 1 from dual
+      </otherwise>
+    </choose>
+  </insert>
+  <select id="countByExample" parameterType="biz.dao.mappers.entity.TbmsapimanagerExample" resultType="java.lang.Long">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select count(*) from TBMSAPIMANAGER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TBMSAPIMANAGER
+    <set>
+      <if test="record.cFunctionid != null">
+        C_FUNCTIONID = #{record.cFunctionid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cPath != null">
+        C_PATH = #{record.cPath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cName != null">
+        C_NAME = #{record.cName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cStatus != null">
+        C_STATUS = #{record.cStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cCheckfunction != null">
+        C_CHECKFUNCTION = #{record.cCheckfunction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cRemark != null">
+        C_REMARK = #{record.cRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TBMSAPIMANAGER
+    set C_FUNCTIONID = #{record.cFunctionid,jdbcType=VARCHAR},
+      C_PATH = #{record.cPath,jdbcType=VARCHAR},
+      C_NAME = #{record.cName,jdbcType=VARCHAR},
+      C_STATUS = #{record.cStatus,jdbcType=VARCHAR},
+      C_CHECKFUNCTION = #{record.cCheckfunction,jdbcType=VARCHAR},
+      C_REMARK = #{record.cRemark,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="biz.dao.mappers.entity.Tbmsapimanager">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TBMSAPIMANAGER
+    <set>
+      <if test="cName != null">
+        C_NAME = #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cStatus != null">
+        C_STATUS = #{cStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="cCheckfunction != null">
+        C_CHECKFUNCTION = #{cCheckfunction,jdbcType=VARCHAR},
+      </if>
+      <if test="cRemark != null">
+        C_REMARK = #{cRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where C_FUNCTIONID = #{cFunctionid,jdbcType=VARCHAR}
+      and C_PATH = #{cPath,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="biz.dao.mappers.entity.Tbmsapimanager">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TBMSAPIMANAGER
+    set C_NAME = #{cName,jdbcType=VARCHAR},
+      C_STATUS = #{cStatus,jdbcType=VARCHAR},
+      C_CHECKFUNCTION = #{cCheckfunction,jdbcType=VARCHAR},
+      C_REMARK = #{cRemark,jdbcType=VARCHAR}
+    where C_FUNCTIONID = #{cFunctionid,jdbcType=VARCHAR}
+      and C_PATH = #{cPath,jdbcType=VARCHAR}
+  </update>
+</mapper>

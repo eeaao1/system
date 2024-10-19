@@ -1,0 +1,27 @@
+package com.hundsun.trust.cloud.api.core.dto.generatorDto;
+
+import io.swagger.annotations.ApiModelProperty;
+
+/**
+* @author : kongli26489
+* @date : 2023/9/5 18:16
+*/
+public class ${className} {
+
+#foreach ($requestInfo in $requestInfoList)
+
+@ApiModelProperty(value = "${requestInfo.paramName}"#if($requestInfo.paramNotNull == '1'), required = true#end)
+private String ${requestInfo.paramKey};
+#end
+
+#foreach ($requestInfo in $requestInfoList)
+
+public String get${requestInfo.paramKey.substring(0,1).toUpperCase()}${requestInfo.paramKey.substring(1)}() {
+    return ${requestInfo.paramKey};
+}
+
+public void set${requestInfo.paramKey.substring(0,1).toUpperCase()}${requestInfo.paramKey.substring(1)}(String ${requestInfo.paramKey}) {
+    this.${requestInfo.paramKey} = ${requestInfo.paramKey};
+}
+#end
+}

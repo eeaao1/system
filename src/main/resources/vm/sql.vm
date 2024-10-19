@@ -1,0 +1,5 @@
+DELETE FROM TINSTINTERINPUTCONFIG WHERE C_INTERFACEID = '$interfaceId';
+#foreach($fieldInfo in $fieldInfos)
+INSERT INTO TINSTINTERINPUTCONFIG (C_SYSTEM, C_FUNCTIONID, C_INTERFACEID, C_FIELDCODE, C_OTHERFIELDCODE, C_TYPE, C_ISMUST, C_FORMAT, C_DATASETID, C_DATATYPE, C_PARAMMAP, C_RELATCOLUMN, C_VERSION, C_PARTY, C_TRANSFERMAP, C_LENGTH, C_DICTNAME, C_FIELDNAME) VALUES ('CA', '$functionId', '$interfaceId', '${fieldInfo.fieldValue}', null, 'S', '$!fieldInfo.isMust', null, null, null, null, #if($fieldInfo.relatcoum)'$!fieldInfo.relatcoum'#else null#end, null, null, null, #if($fieldInfo.legth)'$!fieldInfo.legth'#else null#end, #if($fieldInfo.dict)'$!fieldInfo.dict'#else null#end, '$!fieldInfo.fieldName');
+#end
+COMMIT;

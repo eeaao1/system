@@ -1,0 +1,33 @@
+<html>
+<title>redis console</title>
+<body>
+<label>redis command</label>
+<input id="command" name="command" />
+<input id="submit" type="button" value="submit"/> </br></br>
+<input id="result" name="result" type="text" style=""/>
+
+<script src="../js/jquery-3.7.0.js"></script>
+<script>
+    $(document).ready(function() {
+        // 按钮点击事件
+        $('#submit').click(function() {
+            // 执行AJAX请求
+            $.ajax({
+                url: 'data.json', // 请求的URL
+                type: 'GET', // 请求类型
+                dataType: 'json', // 预期的响应数据类型
+                success: function(data) {
+                    // 当请求成功时执行的回调函数
+                    $('#result').html(JSON.stringify(data));
+                },
+                error: function(xhr, status, error) {
+                    // 当请求失败时执行的回调函数
+                    console.error(error);
+                }
+            });
+        });
+    });
+
+</script>
+</body>
+</html>

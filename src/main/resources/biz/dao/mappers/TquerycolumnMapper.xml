@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="biz.dao.mappers.TquerycolumnMapper">
+  <resultMap id="BaseResultMap" type="biz.dao.mappers.entity.Tquerycolumn">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <result column="L_SERIALNO" jdbcType="DECIMAL" property="lSerialno" />
+    <result column="L_PAGESNO" jdbcType="DECIMAL" property="lPagesno" />
+    <result column="C_NAME" jdbcType="VARCHAR" property="cName" />
+    <result column="C_LABEL" jdbcType="VARCHAR" property="cLabel" />
+    <result column="C_DATATYPE" jdbcType="VARCHAR" property="cDatatype" />
+    <result column="C_SHOWTYPE" jdbcType="VARCHAR" property="cShowtype" />
+    <result column="C_EVENT" jdbcType="VARCHAR" property="cEvent" />
+    <result column="C_CHECK" jdbcType="VARCHAR" property="cCheck" />
+    <result column="C_ALIGN" jdbcType="VARCHAR" property="cAlign" />
+    <result column="C_FORMAT" jdbcType="VARCHAR" property="cFormat" />
+    <result column="C_RELATENAME" jdbcType="VARCHAR" property="cRelatename" />
+    <result column="C_DICTNAME" jdbcType="VARCHAR" property="cDictname" />
+    <result column="L_WIDTH" jdbcType="DECIMAL" property="lWidth" />
+    <result column="C_ENBEL" jdbcType="CHAR" property="cEnbel" />
+    <result column="L_ORDER" jdbcType="DECIMAL" property="lOrder" />
+    <result column="C_ISFROZEN" jdbcType="CHAR" property="cIsfrozen" />
+    <result column="C_ORDERFIELDNAME" jdbcType="VARCHAR" property="cOrderfieldname" />
+    <result column="C_ISSUMMARY" jdbcType="CHAR" property="cIssummary" />
+    <result column="C_COMPPARAM" jdbcType="VARCHAR" property="cCompparam" />
+    <result column="C_EVENTS" jdbcType="VARCHAR" property="cEvents" />
+    <result column="C_HIDDEN" jdbcType="CHAR" property="cHidden" />
+    <result column="C_DEFAULTVALUE" jdbcType="VARCHAR" property="cDefaultvalue" />
+    <result column="C_COMPARECOLUMN" jdbcType="VARCHAR" property="cComparecolumn" />
+    <result column="C_EDIT" jdbcType="CHAR" property="cEdit" />
+    <result column="C_CANSHOWORHIDE" jdbcType="CHAR" property="cCanshoworhide" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    L_SERIALNO, L_PAGESNO, C_NAME, C_LABEL, C_DATATYPE, C_SHOWTYPE, C_EVENT, C_CHECK, 
+    C_ALIGN, C_FORMAT, C_RELATENAME, C_DICTNAME, L_WIDTH, C_ENBEL, L_ORDER, C_ISFROZEN, 
+    C_ORDERFIELDNAME, C_ISSUMMARY, C_COMPPARAM, C_EVENTS, C_HIDDEN, C_DEFAULTVALUE, C_COMPARECOLUMN, 
+    C_EDIT, C_CANSHOWORHIDE
+  </sql>
+  <sql id="Insert_Column_List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    #{record.lSerialno,jdbcType=DECIMAL}, #{record.lPagesno,jdbcType=DECIMAL}, #{record.cName,jdbcType=VARCHAR}, 
+    #{record.cLabel,jdbcType=VARCHAR}, #{record.cDatatype,jdbcType=VARCHAR}, #{record.cShowtype,jdbcType=VARCHAR}, 
+    #{record.cEvent,jdbcType=VARCHAR}, #{record.cCheck,jdbcType=VARCHAR}, #{record.cAlign,jdbcType=VARCHAR}, 
+    #{record.cFormat,jdbcType=VARCHAR}, #{record.cRelatename,jdbcType=VARCHAR}, #{record.cDictname,jdbcType=VARCHAR}, 
+    #{record.lWidth,jdbcType=DECIMAL}, #{record.cEnbel,jdbcType=CHAR}, #{record.lOrder,jdbcType=DECIMAL}, 
+    #{record.cIsfrozen,jdbcType=CHAR}, #{record.cOrderfieldname,jdbcType=VARCHAR}, #{record.cIssummary,jdbcType=CHAR}, 
+    #{record.cCompparam,jdbcType=VARCHAR}, #{record.cEvents,jdbcType=VARCHAR}, #{record.cHidden,jdbcType=CHAR}, 
+    #{record.cDefaultvalue,jdbcType=VARCHAR}, #{record.cComparecolumn,jdbcType=VARCHAR}, 
+    #{record.cEdit,jdbcType=CHAR}, #{record.cCanshoworhide,jdbcType=CHAR}
+  </sql>
+  <select id="selectByExample" parameterType="biz.dao.mappers.entity.TquerycolumnExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TQUERYCOLUMN
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExampleWithPage" resultMap="BaseResultMap">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select
+    <if test="example.distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TQUERYCOLUMN
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+    <if test="example.orderByClause != null">
+      order by ${example.orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="biz.dao.mappers.entity.TquerycolumnExample">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    delete from TQUERYCOLUMN
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="biz.dao.mappers.entity.Tquerycolumn">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    insert into TQUERYCOLUMN (L_SERIALNO, L_PAGESNO, C_NAME, 
+      C_LABEL, C_DATATYPE, C_SHOWTYPE, 
+      C_EVENT, C_CHECK, C_ALIGN, 
+      C_FORMAT, C_RELATENAME, C_DICTNAME, 
+      L_WIDTH, C_ENBEL, L_ORDER, 
+      C_ISFROZEN, C_ORDERFIELDNAME, C_ISSUMMARY, 
+      C_COMPPARAM, C_EVENTS, C_HIDDEN, 
+      C_DEFAULTVALUE, C_COMPARECOLUMN, C_EDIT, 
+      C_CANSHOWORHIDE)
+    values (#{lSerialno,jdbcType=DECIMAL}, #{lPagesno,jdbcType=DECIMAL}, #{cName,jdbcType=VARCHAR}, 
+      #{cLabel,jdbcType=VARCHAR}, #{cDatatype,jdbcType=VARCHAR}, #{cShowtype,jdbcType=VARCHAR}, 
+      #{cEvent,jdbcType=VARCHAR}, #{cCheck,jdbcType=VARCHAR}, #{cAlign,jdbcType=VARCHAR}, 
+      #{cFormat,jdbcType=VARCHAR}, #{cRelatename,jdbcType=VARCHAR}, #{cDictname,jdbcType=VARCHAR}, 
+      #{lWidth,jdbcType=DECIMAL}, #{cEnbel,jdbcType=CHAR}, #{lOrder,jdbcType=DECIMAL}, 
+      #{cIsfrozen,jdbcType=CHAR}, #{cOrderfieldname,jdbcType=VARCHAR}, #{cIssummary,jdbcType=CHAR}, 
+      #{cCompparam,jdbcType=VARCHAR}, #{cEvents,jdbcType=VARCHAR}, #{cHidden,jdbcType=CHAR}, 
+      #{cDefaultvalue,jdbcType=VARCHAR}, #{cComparecolumn,jdbcType=VARCHAR}, #{cEdit,jdbcType=CHAR}, 
+      #{cCanshoworhide,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="biz.dao.mappers.entity.Tquerycolumn">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    insert into TQUERYCOLUMN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lSerialno != null">
+        L_SERIALNO,
+      </if>
+      <if test="lPagesno != null">
+        L_PAGESNO,
+      </if>
+      <if test="cName != null">
+        C_NAME,
+      </if>
+      <if test="cLabel != null">
+        C_LABEL,
+      </if>
+      <if test="cDatatype != null">
+        C_DATATYPE,
+      </if>
+      <if test="cShowtype != null">
+        C_SHOWTYPE,
+      </if>
+      <if test="cEvent != null">
+        C_EVENT,
+      </if>
+      <if test="cCheck != null">
+        C_CHECK,
+      </if>
+      <if test="cAlign != null">
+        C_ALIGN,
+      </if>
+      <if test="cFormat != null">
+        C_FORMAT,
+      </if>
+      <if test="cRelatename != null">
+        C_RELATENAME,
+      </if>
+      <if test="cDictname != null">
+        C_DICTNAME,
+      </if>
+      <if test="lWidth != null">
+        L_WIDTH,
+      </if>
+      <if test="cEnbel != null">
+        C_ENBEL,
+      </if>
+      <if test="lOrder != null">
+        L_ORDER,
+      </if>
+      <if test="cIsfrozen != null">
+        C_ISFROZEN,
+      </if>
+      <if test="cOrderfieldname != null">
+        C_ORDERFIELDNAME,
+      </if>
+      <if test="cIssummary != null">
+        C_ISSUMMARY,
+      </if>
+      <if test="cCompparam != null">
+        C_COMPPARAM,
+      </if>
+      <if test="cEvents != null">
+        C_EVENTS,
+      </if>
+      <if test="cHidden != null">
+        C_HIDDEN,
+      </if>
+      <if test="cDefaultvalue != null">
+        C_DEFAULTVALUE,
+      </if>
+      <if test="cComparecolumn != null">
+        C_COMPARECOLUMN,
+      </if>
+      <if test="cEdit != null">
+        C_EDIT,
+      </if>
+      <if test="cCanshoworhide != null">
+        C_CANSHOWORHIDE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lSerialno != null">
+        #{lSerialno,jdbcType=DECIMAL},
+      </if>
+      <if test="lPagesno != null">
+        #{lPagesno,jdbcType=DECIMAL},
+      </if>
+      <if test="cName != null">
+        #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cLabel != null">
+        #{cLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="cDatatype != null">
+        #{cDatatype,jdbcType=VARCHAR},
+      </if>
+      <if test="cShowtype != null">
+        #{cShowtype,jdbcType=VARCHAR},
+      </if>
+      <if test="cEvent != null">
+        #{cEvent,jdbcType=VARCHAR},
+      </if>
+      <if test="cCheck != null">
+        #{cCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="cAlign != null">
+        #{cAlign,jdbcType=VARCHAR},
+      </if>
+      <if test="cFormat != null">
+        #{cFormat,jdbcType=VARCHAR},
+      </if>
+      <if test="cRelatename != null">
+        #{cRelatename,jdbcType=VARCHAR},
+      </if>
+      <if test="cDictname != null">
+        #{cDictname,jdbcType=VARCHAR},
+      </if>
+      <if test="lWidth != null">
+        #{lWidth,jdbcType=DECIMAL},
+      </if>
+      <if test="cEnbel != null">
+        #{cEnbel,jdbcType=CHAR},
+      </if>
+      <if test="lOrder != null">
+        #{lOrder,jdbcType=DECIMAL},
+      </if>
+      <if test="cIsfrozen != null">
+        #{cIsfrozen,jdbcType=CHAR},
+      </if>
+      <if test="cOrderfieldname != null">
+        #{cOrderfieldname,jdbcType=VARCHAR},
+      </if>
+      <if test="cIssummary != null">
+        #{cIssummary,jdbcType=CHAR},
+      </if>
+      <if test="cCompparam != null">
+        #{cCompparam,jdbcType=VARCHAR},
+      </if>
+      <if test="cEvents != null">
+        #{cEvents,jdbcType=VARCHAR},
+      </if>
+      <if test="cHidden != null">
+        #{cHidden,jdbcType=CHAR},
+      </if>
+      <if test="cDefaultvalue != null">
+        #{cDefaultvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="cComparecolumn != null">
+        #{cComparecolumn,jdbcType=VARCHAR},
+      </if>
+      <if test="cEdit != null">
+        #{cEdit,jdbcType=CHAR},
+      </if>
+      <if test="cCanshoworhide != null">
+        #{cCanshoworhide,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertBatch" parameterType="java.util.List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <choose>
+      <when test="${getDBType} == 'Mysql' or ${getDBType} == 'OceanBase'">
+        insert into TQUERYCOLUMN
+        (<include refid="Base_Column_List" />)
+        values
+        <foreach collection="records" item="record" separator=",">
+          (<include refid="Insert_Column_List" />)
+        </foreach>
+      </when>
+      <otherwise>
+        insert all
+        <foreach collection="records" item="record">
+          into TQUERYCOLUMN
+          (<include refid="Base_Column_List" />)
+          values
+          (<include refid="Insert_Column_List" />)
+        </foreach>
+        select 1 from dual
+      </otherwise>
+    </choose>
+  </insert>
+  <select id="countByExample" parameterType="biz.dao.mappers.entity.TquerycolumnExample" resultType="java.lang.Long">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select count(*) from TQUERYCOLUMN
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TQUERYCOLUMN
+    <set>
+      <if test="record.lSerialno != null">
+        L_SERIALNO = #{record.lSerialno,jdbcType=DECIMAL},
+      </if>
+      <if test="record.lPagesno != null">
+        L_PAGESNO = #{record.lPagesno,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cName != null">
+        C_NAME = #{record.cName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cLabel != null">
+        C_LABEL = #{record.cLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cDatatype != null">
+        C_DATATYPE = #{record.cDatatype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cShowtype != null">
+        C_SHOWTYPE = #{record.cShowtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cEvent != null">
+        C_EVENT = #{record.cEvent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cCheck != null">
+        C_CHECK = #{record.cCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cAlign != null">
+        C_ALIGN = #{record.cAlign,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cFormat != null">
+        C_FORMAT = #{record.cFormat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cRelatename != null">
+        C_RELATENAME = #{record.cRelatename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cDictname != null">
+        C_DICTNAME = #{record.cDictname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lWidth != null">
+        L_WIDTH = #{record.lWidth,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cEnbel != null">
+        C_ENBEL = #{record.cEnbel,jdbcType=CHAR},
+      </if>
+      <if test="record.lOrder != null">
+        L_ORDER = #{record.lOrder,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cIsfrozen != null">
+        C_ISFROZEN = #{record.cIsfrozen,jdbcType=CHAR},
+      </if>
+      <if test="record.cOrderfieldname != null">
+        C_ORDERFIELDNAME = #{record.cOrderfieldname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cIssummary != null">
+        C_ISSUMMARY = #{record.cIssummary,jdbcType=CHAR},
+      </if>
+      <if test="record.cCompparam != null">
+        C_COMPPARAM = #{record.cCompparam,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cEvents != null">
+        C_EVENTS = #{record.cEvents,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cHidden != null">
+        C_HIDDEN = #{record.cHidden,jdbcType=CHAR},
+      </if>
+      <if test="record.cDefaultvalue != null">
+        C_DEFAULTVALUE = #{record.cDefaultvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cComparecolumn != null">
+        C_COMPARECOLUMN = #{record.cComparecolumn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cEdit != null">
+        C_EDIT = #{record.cEdit,jdbcType=CHAR},
+      </if>
+      <if test="record.cCanshoworhide != null">
+        C_CANSHOWORHIDE = #{record.cCanshoworhide,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TQUERYCOLUMN
+    set L_SERIALNO = #{record.lSerialno,jdbcType=DECIMAL},
+      L_PAGESNO = #{record.lPagesno,jdbcType=DECIMAL},
+      C_NAME = #{record.cName,jdbcType=VARCHAR},
+      C_LABEL = #{record.cLabel,jdbcType=VARCHAR},
+      C_DATATYPE = #{record.cDatatype,jdbcType=VARCHAR},
+      C_SHOWTYPE = #{record.cShowtype,jdbcType=VARCHAR},
+      C_EVENT = #{record.cEvent,jdbcType=VARCHAR},
+      C_CHECK = #{record.cCheck,jdbcType=VARCHAR},
+      C_ALIGN = #{record.cAlign,jdbcType=VARCHAR},
+      C_FORMAT = #{record.cFormat,jdbcType=VARCHAR},
+      C_RELATENAME = #{record.cRelatename,jdbcType=VARCHAR},
+      C_DICTNAME = #{record.cDictname,jdbcType=VARCHAR},
+      L_WIDTH = #{record.lWidth,jdbcType=DECIMAL},
+      C_ENBEL = #{record.cEnbel,jdbcType=CHAR},
+      L_ORDER = #{record.lOrder,jdbcType=DECIMAL},
+      C_ISFROZEN = #{record.cIsfrozen,jdbcType=CHAR},
+      C_ORDERFIELDNAME = #{record.cOrderfieldname,jdbcType=VARCHAR},
+      C_ISSUMMARY = #{record.cIssummary,jdbcType=CHAR},
+      C_COMPPARAM = #{record.cCompparam,jdbcType=VARCHAR},
+      C_EVENTS = #{record.cEvents,jdbcType=VARCHAR},
+      C_HIDDEN = #{record.cHidden,jdbcType=CHAR},
+      C_DEFAULTVALUE = #{record.cDefaultvalue,jdbcType=VARCHAR},
+      C_COMPARECOLUMN = #{record.cComparecolumn,jdbcType=VARCHAR},
+      C_EDIT = #{record.cEdit,jdbcType=CHAR},
+      C_CANSHOWORHIDE = #{record.cCanshoworhide,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

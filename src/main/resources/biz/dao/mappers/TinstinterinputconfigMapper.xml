@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="biz.dao.mappers.TinstinterinputconfigMapper">
+  <resultMap id="BaseResultMap" type="biz.dao.mappers.entity.Tinstinterinputconfig">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <result column="C_SYSTEM" jdbcType="VARCHAR" property="cSystem" />
+    <result column="C_FUNCTIONID" jdbcType="VARCHAR" property="cFunctionid" />
+    <result column="C_INTERFACEID" jdbcType="VARCHAR" property="cInterfaceid" />
+    <result column="C_FIELDCODE" jdbcType="VARCHAR" property="cFieldcode" />
+    <result column="C_OTHERFIELDCODE" jdbcType="VARCHAR" property="cOtherfieldcode" />
+    <result column="C_TYPE" jdbcType="CHAR" property="cType" />
+    <result column="C_ISMUST" jdbcType="CHAR" property="cIsmust" />
+    <result column="C_FORMAT" jdbcType="VARCHAR" property="cFormat" />
+    <result column="C_DATASETID" jdbcType="VARCHAR" property="cDatasetid" />
+    <result column="C_DATATYPE" jdbcType="VARCHAR" property="cDatatype" />
+    <result column="C_PARAMMAP" jdbcType="VARCHAR" property="cParammap" />
+    <result column="C_RELATCOLUMN" jdbcType="VARCHAR" property="cRelatcolumn" />
+    <result column="C_VERSION" jdbcType="VARCHAR" property="cVersion" />
+    <result column="C_PARTY" jdbcType="VARCHAR" property="cParty" />
+    <result column="C_TRANSFERMAP" jdbcType="VARCHAR" property="cTransfermap" />
+    <result column="C_LENGTH" jdbcType="VARCHAR" property="cLength" />
+    <result column="C_DICTNAME" jdbcType="VARCHAR" property="cDictname" />
+    <result column="C_FIELDNAME" jdbcType="VARCHAR" property="cFieldname" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    C_SYSTEM, C_FUNCTIONID, C_INTERFACEID, C_FIELDCODE, C_OTHERFIELDCODE, C_TYPE, C_ISMUST, 
+    C_FORMAT, C_DATASETID, C_DATATYPE, C_PARAMMAP, C_RELATCOLUMN, C_VERSION, C_PARTY, 
+    C_TRANSFERMAP, C_LENGTH, C_DICTNAME, C_FIELDNAME
+  </sql>
+  <sql id="Insert_Column_List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    #{record.cSystem,jdbcType=VARCHAR}, #{record.cFunctionid,jdbcType=VARCHAR}, #{record.cInterfaceid,jdbcType=VARCHAR}, 
+    #{record.cFieldcode,jdbcType=VARCHAR}, #{record.cOtherfieldcode,jdbcType=VARCHAR}, 
+    #{record.cType,jdbcType=CHAR}, #{record.cIsmust,jdbcType=CHAR}, #{record.cFormat,jdbcType=VARCHAR}, 
+    #{record.cDatasetid,jdbcType=VARCHAR}, #{record.cDatatype,jdbcType=VARCHAR}, #{record.cParammap,jdbcType=VARCHAR}, 
+    #{record.cRelatcolumn,jdbcType=VARCHAR}, #{record.cVersion,jdbcType=VARCHAR}, #{record.cParty,jdbcType=VARCHAR}, 
+    #{record.cTransfermap,jdbcType=VARCHAR}, #{record.cLength,jdbcType=VARCHAR}, #{record.cDictname,jdbcType=VARCHAR}, 
+    #{record.cFieldname,jdbcType=VARCHAR}
+  </sql>
+  <select id="selectByExample" parameterType="biz.dao.mappers.entity.TinstinterinputconfigExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TINSTINTERINPUTCONFIG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExampleWithPage" resultMap="BaseResultMap">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select
+    <if test="example.distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TINSTINTERINPUTCONFIG
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+    <if test="example.orderByClause != null">
+      order by ${example.orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="biz.dao.mappers.entity.TinstinterinputconfigExample">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    delete from TINSTINTERINPUTCONFIG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="biz.dao.mappers.entity.Tinstinterinputconfig">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    insert into TINSTINTERINPUTCONFIG (C_SYSTEM, C_FUNCTIONID, C_INTERFACEID, 
+      C_FIELDCODE, C_OTHERFIELDCODE, C_TYPE, 
+      C_ISMUST, C_FORMAT, C_DATASETID, 
+      C_DATATYPE, C_PARAMMAP, C_RELATCOLUMN, 
+      C_VERSION, C_PARTY, C_TRANSFERMAP, 
+      C_LENGTH, C_DICTNAME, C_FIELDNAME
+      )
+    values (#{cSystem,jdbcType=VARCHAR}, #{cFunctionid,jdbcType=VARCHAR}, #{cInterfaceid,jdbcType=VARCHAR}, 
+      #{cFieldcode,jdbcType=VARCHAR}, #{cOtherfieldcode,jdbcType=VARCHAR}, #{cType,jdbcType=CHAR}, 
+      #{cIsmust,jdbcType=CHAR}, #{cFormat,jdbcType=VARCHAR}, #{cDatasetid,jdbcType=VARCHAR}, 
+      #{cDatatype,jdbcType=VARCHAR}, #{cParammap,jdbcType=VARCHAR}, #{cRelatcolumn,jdbcType=VARCHAR}, 
+      #{cVersion,jdbcType=VARCHAR}, #{cParty,jdbcType=VARCHAR}, #{cTransfermap,jdbcType=VARCHAR}, 
+      #{cLength,jdbcType=VARCHAR}, #{cDictname,jdbcType=VARCHAR}, #{cFieldname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="biz.dao.mappers.entity.Tinstinterinputconfig">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    insert into TINSTINTERINPUTCONFIG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cSystem != null">
+        C_SYSTEM,
+      </if>
+      <if test="cFunctionid != null">
+        C_FUNCTIONID,
+      </if>
+      <if test="cInterfaceid != null">
+        C_INTERFACEID,
+      </if>
+      <if test="cFieldcode != null">
+        C_FIELDCODE,
+      </if>
+      <if test="cOtherfieldcode != null">
+        C_OTHERFIELDCODE,
+      </if>
+      <if test="cType != null">
+        C_TYPE,
+      </if>
+      <if test="cIsmust != null">
+        C_ISMUST,
+      </if>
+      <if test="cFormat != null">
+        C_FORMAT,
+      </if>
+      <if test="cDatasetid != null">
+        C_DATASETID,
+      </if>
+      <if test="cDatatype != null">
+        C_DATATYPE,
+      </if>
+      <if test="cParammap != null">
+        C_PARAMMAP,
+      </if>
+      <if test="cRelatcolumn != null">
+        C_RELATCOLUMN,
+      </if>
+      <if test="cVersion != null">
+        C_VERSION,
+      </if>
+      <if test="cParty != null">
+        C_PARTY,
+      </if>
+      <if test="cTransfermap != null">
+        C_TRANSFERMAP,
+      </if>
+      <if test="cLength != null">
+        C_LENGTH,
+      </if>
+      <if test="cDictname != null">
+        C_DICTNAME,
+      </if>
+      <if test="cFieldname != null">
+        C_FIELDNAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cSystem != null">
+        #{cSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="cFunctionid != null">
+        #{cFunctionid,jdbcType=VARCHAR},
+      </if>
+      <if test="cInterfaceid != null">
+        #{cInterfaceid,jdbcType=VARCHAR},
+      </if>
+      <if test="cFieldcode != null">
+        #{cFieldcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cOtherfieldcode != null">
+        #{cOtherfieldcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cType != null">
+        #{cType,jdbcType=CHAR},
+      </if>
+      <if test="cIsmust != null">
+        #{cIsmust,jdbcType=CHAR},
+      </if>
+      <if test="cFormat != null">
+        #{cFormat,jdbcType=VARCHAR},
+      </if>
+      <if test="cDatasetid != null">
+        #{cDatasetid,jdbcType=VARCHAR},
+      </if>
+      <if test="cDatatype != null">
+        #{cDatatype,jdbcType=VARCHAR},
+      </if>
+      <if test="cParammap != null">
+        #{cParammap,jdbcType=VARCHAR},
+      </if>
+      <if test="cRelatcolumn != null">
+        #{cRelatcolumn,jdbcType=VARCHAR},
+      </if>
+      <if test="cVersion != null">
+        #{cVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="cParty != null">
+        #{cParty,jdbcType=VARCHAR},
+      </if>
+      <if test="cTransfermap != null">
+        #{cTransfermap,jdbcType=VARCHAR},
+      </if>
+      <if test="cLength != null">
+        #{cLength,jdbcType=VARCHAR},
+      </if>
+      <if test="cDictname != null">
+        #{cDictname,jdbcType=VARCHAR},
+      </if>
+      <if test="cFieldname != null">
+        #{cFieldname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertBatch" parameterType="java.util.List">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    <choose>
+      <when test="${getDBType} == 'Mysql' or ${getDBType} == 'OceanBase'">
+        insert into TINSTINTERINPUTCONFIG
+        (<include refid="Base_Column_List" />)
+        values
+        <foreach collection="records" item="record" separator=",">
+          (<include refid="Insert_Column_List" />)
+        </foreach>
+      </when>
+      <otherwise>
+        insert all
+        <foreach collection="records" item="record">
+          into TINSTINTERINPUTCONFIG
+          (<include refid="Base_Column_List" />)
+          values
+          (<include refid="Insert_Column_List" />)
+        </foreach>
+        select 1 from dual
+      </otherwise>
+    </choose>
+  </insert>
+  <select id="countByExample" parameterType="biz.dao.mappers.entity.TinstinterinputconfigExample" resultType="java.lang.Long">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    select count(*) from TINSTINTERINPUTCONFIG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TINSTINTERINPUTCONFIG
+    <set>
+      <if test="record.cSystem != null">
+        C_SYSTEM = #{record.cSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cFunctionid != null">
+        C_FUNCTIONID = #{record.cFunctionid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cInterfaceid != null">
+        C_INTERFACEID = #{record.cInterfaceid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cFieldcode != null">
+        C_FIELDCODE = #{record.cFieldcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cOtherfieldcode != null">
+        C_OTHERFIELDCODE = #{record.cOtherfieldcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cType != null">
+        C_TYPE = #{record.cType,jdbcType=CHAR},
+      </if>
+      <if test="record.cIsmust != null">
+        C_ISMUST = #{record.cIsmust,jdbcType=CHAR},
+      </if>
+      <if test="record.cFormat != null">
+        C_FORMAT = #{record.cFormat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cDatasetid != null">
+        C_DATASETID = #{record.cDatasetid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cDatatype != null">
+        C_DATATYPE = #{record.cDatatype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cParammap != null">
+        C_PARAMMAP = #{record.cParammap,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cRelatcolumn != null">
+        C_RELATCOLUMN = #{record.cRelatcolumn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cVersion != null">
+        C_VERSION = #{record.cVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cParty != null">
+        C_PARTY = #{record.cParty,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cTransfermap != null">
+        C_TRANSFERMAP = #{record.cTransfermap,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cLength != null">
+        C_LENGTH = #{record.cLength,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cDictname != null">
+        C_DICTNAME = #{record.cDictname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cFieldname != null">
+        C_FIELDNAME = #{record.cFieldname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - 
+      这是工具生成代码，禁止手工修改
+    -->
+    update TINSTINTERINPUTCONFIG
+    set C_SYSTEM = #{record.cSystem,jdbcType=VARCHAR},
+      C_FUNCTIONID = #{record.cFunctionid,jdbcType=VARCHAR},
+      C_INTERFACEID = #{record.cInterfaceid,jdbcType=VARCHAR},
+      C_FIELDCODE = #{record.cFieldcode,jdbcType=VARCHAR},
+      C_OTHERFIELDCODE = #{record.cOtherfieldcode,jdbcType=VARCHAR},
+      C_TYPE = #{record.cType,jdbcType=CHAR},
+      C_ISMUST = #{record.cIsmust,jdbcType=CHAR},
+      C_FORMAT = #{record.cFormat,jdbcType=VARCHAR},
+      C_DATASETID = #{record.cDatasetid,jdbcType=VARCHAR},
+      C_DATATYPE = #{record.cDatatype,jdbcType=VARCHAR},
+      C_PARAMMAP = #{record.cParammap,jdbcType=VARCHAR},
+      C_RELATCOLUMN = #{record.cRelatcolumn,jdbcType=VARCHAR},
+      C_VERSION = #{record.cVersion,jdbcType=VARCHAR},
+      C_PARTY = #{record.cParty,jdbcType=VARCHAR},
+      C_TRANSFERMAP = #{record.cTransfermap,jdbcType=VARCHAR},
+      C_LENGTH = #{record.cLength,jdbcType=VARCHAR},
+      C_DICTNAME = #{record.cDictname,jdbcType=VARCHAR},
+      C_FIELDNAME = #{record.cFieldname,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
